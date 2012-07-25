@@ -1,0 +1,9 @@
+[submodule "veewee"]
+	path = veewee
+	url = git://github.com/akumano/veewee.git
+[submodule "origami"]
+	path = origami
+	url = git://github.com/akumano/origami.git
+[submodule "puppet-seisan-line"]
+	path = puppet-seisan-line
+	url = git://github.com/akumano/puppet-seisan-line.git
