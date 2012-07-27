@@ -1,4 +1,6 @@
-module SeisanLine
+require 'optparse'
+
+module Seisan
   class Options
     attr_reader :options
 
