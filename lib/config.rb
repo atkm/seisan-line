@@ -4,8 +4,13 @@
 ### or just call each config files of
 ### submodules from here
 
-module SeisanLine
-  
+### Important config files:
+###    veewee/lib/veewee/config/ostypes.yml
+###    origami/lib/[kickstart,definition]/seeds
+###    origami/lib/config.rb
+###    origami/lib/[kickstart,definition]/[definition,ks]_base.rb
+
+module Seisan
   def project_root
     root = File.expand_path(
                             File.join(File.dirname(__FILE__), '..')
@@ -14,15 +19,15 @@ module SeisanLine
   end
 
   def veewee_definitions
-    File.join(project_root, 'veewee/definitions')
+    return File.join(project_root, 'veewee/definitions')
   end
   def origami_path
-    File.join( project_root, 'origami/bin')
+    return File.join( project_root, 'origami/lib')
   end
   def veewee_path
-    File.join( project_root, 'veewee')
+    return File.join( project_root, 'veewee')
   end
   def definitions_path
-    File.join( project_root, 'definitions')
+    return File.join( project_root, 'definitions')
   end
 end

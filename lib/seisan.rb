@@ -16,16 +16,19 @@ module Seisan
       puts "Initiating the build of #{name}..."
       puts "Options selected are: "
       puts "\t headless => #{options[:headless]}; force => #{options[:force]}."
-      puts "Passing the work to veewee..."
+      print("Passing the work to veewee...\n\n")
       build(name,options,veewee_path)
     end
 
 
     ## call 'origami <name>' 
     if options[:define]
+      $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
       require 'origami'
       require 'define'
-      puts "Defining #{options[:name]}..."
+      name = options[:name]
+      puts "Defining #{name}..."
+      define(name)
     end
     
   end#def

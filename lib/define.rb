@@ -5,10 +5,10 @@
 ### we use origami & seeds
 
 module Seisan
-  def define
-    build_from_seed(options[:name],'kickstart',definitions_path)
+  def define(name)
+    Origami.build_from_seed(name,'kickstart',definitions_path)
     puts
-    build_from_seed(options[:name],'definition',definitions_path)
+    Origami.build_from_seed(name,'definition',definitions_path)
     puts
   end
 end
