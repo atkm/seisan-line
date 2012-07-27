@@ -1,9 +1,13 @@
 require 'optparse'
 
+puts 'optparing is being loaded: part1'
+
 module Seisan
   class Options
     attr_reader :options
 
+    puts 'optparsing is being loaded: part2'
+    
     def self.parse_args
       
       @options = {}

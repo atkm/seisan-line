@@ -27,10 +27,12 @@ project_root =  File.expand_path(
                                  File.join(File.dirname(__FILE__), '..')
                                  )
 project_path = File.join( project_root, 'lib')
-origami_path = File.join( project_root, 'origami/lib')
+# origami_path = File.join( project_root, 'origami/lib')
   
 $LOAD_PATH.unshift(project_path) unless $LOAD_PATH.include?(project_path)
-$LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
+
+# The line beneath is evil.
+# $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
 
 require 'seisan'
 
