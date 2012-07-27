@@ -1,6 +1,6 @@
 #/usr/bin/env ruby
 
-require 'config'
+require 'seisan_line_config'
 require 'optparsing'
 
 module Seisan
