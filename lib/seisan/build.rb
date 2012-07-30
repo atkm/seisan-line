@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 ### build.rb
 ### builds a VM using veewee
 ### I don't understand how 'Thor' parses options
@@ -7,7 +6,12 @@
 
 module Seisan
   def build(name,options,veewee_path)
-    command = "cd #{veewee_path} && bundle exec veewee fusion build "
+    puts "Initiating the build of #{name}..."
+    puts "Options selected are: "
+    puts "\t headless => #{options[:headless]}; force => #{options[:force]}."
+    print("Passing the work to veewee...\n\n")
+
+    command = veewee_command + 'build '
     if options[:headless]
       command = command + '-n '
     end

@@ -10,9 +10,9 @@ module Seisan
       optparse = OptionParser.new do |opts|
         opts.banner = "Usage: seisan <command>"
 
-        @options[:build] = nil
+        @options[:build] = false
         @options[:name] = nil
-        opts.on('-b','--build NAME',"Define (if definition and kickstart not present) & Build VM.\n#{"\t"*4 + "\s"*5}It is recommended to 'define' and take a look at confing files before 'build'.\n#{"\t"*4 + "\s"*5}NAME must have the following format: '<distro>-<version>-<arch>-<type>'.") do |name|
+        opts.on('-b','--build NAME',"Build VM.\n#{"\t"*4 + "\s"*5}It is recommended to 'define' and take a look at confing files before 'build'.\n#{"\t"*4 + "\s"*5}NAME must have the following format: '<distro>-<version>-<arch>-<type>'.") do |name|
           @options[:build] = true
           @options[:name] = name
         end
@@ -27,10 +27,21 @@ module Seisan
           @options[:force] = true
         end
 
-        @options[:define] = nil
-        opts.on('-d','--define NAME') do |name|
+        @options[:define] = false
+        opts.on('-d','--define NAME',"Create a VM definition for veewee.") do |name|
           @options[:define] = true
           @options[:name] = name
+        end
+
+        @options[:destroy] = false
+        opts.on('--destroy NAME',"Destroy a VM") do |name|
+          @options[:destroy] = true
+          @options[:name] = name
+        end
+
+        @options[:list] = false
+        opts.on('-l','--list') do
+          @options[:list] = true
         end
         
         opts.on('-h','--help','show help') do
@@ -44,6 +55,15 @@ module Seisan
       if @options[:build] and @options[:define]
         puts "\tBoth 'build' and 'define' were chosen."
         abort("\tBad option. You can only choose one action.")
+      end
+
+      actions = @options[:build], @options[:define], @options[:destroy], @options[:list]
+      check = actions.delete_if {|bool| !bool}
+      if check.length > 1
+        abort "You can't choose more than one actions."
+      end
+      if check.length == 0
+        abort "No action selected."
       end
       
       return @options

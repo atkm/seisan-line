@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 ### define.rb
 ### Equivalent of 'veewee fusion define'
 ### Instead of a template in veewee/templates,
@@ -12,6 +11,7 @@ module Seisan
     puts
     Origami.build_from_seed(name,'definition',destination)
     puts
+    puts "Defining #{name}..."
     link_definition(name,destination)
     rename_definition(name,destination)
   end
@@ -40,4 +40,14 @@ module Seisan
     old_file = File.new(File.join(dir, name + '_definition.rb'),'r')
     definition.write(old_file.read)
   end
+  ## helper2.5: rename_ks
+  ## rename the kickstart file to ks.cfg
+  def rename_ks(name,dir)
+    definition = File.new(File.join(dir, 'ks.cfg'),'w')
+    old_file = File.new(File.join(dir, name + '_ks.cfg'),'r')
+    definition.write(old_file.read)
+  end
 end
+
+end
+
