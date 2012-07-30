@@ -19,7 +19,6 @@ module Seisan
     if options[:destroy]
       require 'seisan/destroy'
       name = options[:name]
-      
     end
 
     if options[:list]

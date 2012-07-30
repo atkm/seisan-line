@@ -34,4 +34,7 @@ module Seisan
   def definitions_path
     return File.join( project_root, 'definitions')
   end
+  def postscripts_path
+    return File.join(project_root, 'post_scripts')
+  end
 end
