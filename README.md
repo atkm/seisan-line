@@ -7,7 +7,20 @@ Components of _seisan-line_ = veewee + origami + puppet:
 - origami = creates `definition.rb` and `ks.cfg`.
 - puppet = manages veewee and origami && send products to the right places
 
+## Installation ##
+
+Dependencies:
+
+- VMFusion (of course)
+- fission
+
 Commands:
 
 - -d or --define
 - -b or --build
+- --destroy
+
+Options for 'build':
+
+- --force = force creation of VM (i.e. destroy the pre-existing one)
+- -g or --gui = launch up 
