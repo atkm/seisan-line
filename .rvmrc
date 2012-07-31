@@ -1,3 +1,5 @@
 rvm use ruby-1.8.7@veewee
 
+alias 'seisan'='bin/seisan'
+
 
