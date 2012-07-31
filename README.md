@@ -24,6 +24,7 @@ Procedure:
 	cd veewee
 	gem install bundler
 	bundle install
+	cp seisan-line/veewee/fissionrc.example ~/.fissionrc # Then edit this file. Read comments.
 	# veewee installation complete.
 	# 
 	mkdir seisan-line/veewee/iso # put your isoimages here
@@ -39,12 +40,12 @@ Take a look at `definition.rb` and `ks.cfg` in a directory corresponding to `NAM
 - `-b NAME` = `--build NAME` = Build a VM. You need to run `--define` prior to building.
 Also see options below.
 - `--destroy NAME` = Destroy an existing VM.
-- `--list
+- `--list` = List already defined boxes.
 
 Options for 'build':
 
 - --force = force creation of VM (i.e. destroy the pre-existing one)
-- -g or --gui = launch up 
+- -g or --gui = launch up VMFusion GUI
 
 Example:
 
