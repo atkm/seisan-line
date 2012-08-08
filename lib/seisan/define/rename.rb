@@ -11,8 +11,14 @@ module Seisan
   end
   ## rename the kickstart file to ks.cfg
   def rename_ks(name,dir)
-    definition = File.new(File.join(dir, 'ks.cfg'),'w')
-    old_file = File.new(File.join(dir, name + '_ks.cfg'),'r')
-    definition.write(old_file.read)
+    ks_file_name = choose_ks_file_name(name)
+    kickstart = File.new(File.join(dir, ks_file_name),'w')
+    old_file = File.new(File.join(dir, name + '_' + ks_file_name),'r')
+    kickstart.write(old_file.read)
+  end
+  def choose_ks_file_name(name)
+    family = Origami.resolve(name)[4]
+    instruction = {'EL' => 'ks.cfg','Deb' => 'preseed.cfg', 'SUSE' => 'autoyast.xml'}
+    return instruction[family]
   end
 end

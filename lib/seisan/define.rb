@@ -8,8 +8,9 @@ Dir[File.dirname(__FILE__) + "/define/*"].each {|helper| require helper}
 module Seisan
   def define(name)
     distro, version, arch, type, family = Origami.resolve(name)
+    instruction = Origami.choose_instruction(name)
     destination = File.join(definitions_path, family, distro, version + '.x', arch, type)
-    Origami.build_from_seed(name,'kickstart',destination)
+    Origami.build_from_seed(name,instruction,destination)
     puts
     Origami.build_from_seed(name,'definition',destination)
     puts
