@@ -11,7 +11,7 @@
 
 module Seisan
   def ks_file_server
-    return '192.168.100.225'
+    return 'http://192.168.100.225'
   end
   def project_root
     root = File.expand_path(

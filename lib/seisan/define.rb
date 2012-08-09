@@ -15,6 +15,8 @@ module Seisan
     Origami.build_from_seed(name,'definition',destination)
     puts
     puts "Defining #{name}..."
+    definition_file_name = name + '_definition.rb'
+    set_ks_server(File.join(destination, definition_file_name), ks_file_server)
     link_definition(name,destination)
     rename_definition(name,destination)
     rename_ks(name,destination)
