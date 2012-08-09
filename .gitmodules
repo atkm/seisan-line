@@ -1,6 +1,6 @@
 [submodule "veewee"]
 	path = veewee
-	url = git://github.com/akumano/veewee.git
+	url = git://github.com/akumano/veewee-fusion4.git
 [submodule "origami"]
 	path = origami
 	url = git://github.com/akumano/origami.git
