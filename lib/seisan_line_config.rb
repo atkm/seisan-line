@@ -10,6 +10,9 @@
 ###    origami/lib/[kickstart,definition]/[definition,ks]_base.rb
 
 module Seisan
+  def ks_file_server
+    return '192.168.100.225'
+  end
   def project_root
     root = File.expand_path(
                             File.join(File.dirname(__FILE__), '..')
