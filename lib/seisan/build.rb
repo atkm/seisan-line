@@ -15,6 +15,6 @@ module Seisan
     if options[:force]
       command = command + '-f '
     end
-    system(command + name)
+    exec command + name
   end
 end

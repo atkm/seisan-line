@@ -9,12 +9,13 @@ module Seisan
   def seisan(options)
 
     ## call 'origami <name>' 
-    if options[:define]
+    if options[:define] or options[:bootstrap]
       $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
       require 'origami'
       require 'seisan/define'
       name = options[:name]
       define(name)
+      $LOAD_PATH.shift # remove origami path from LOAD_PATH
     end
  
     ## calling 'veewee build'
