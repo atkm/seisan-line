@@ -16,6 +16,11 @@ module Seisan
           @options[:build] = true
           @options[:name] = name
         end
+
+        @options[:bootstrap] = false
+        opts.on('--bootstrap',"Create definition before building.") do
+          @options[:bootstrap] = true
+        end
         
         @options[:headless] = true
         opts.on('-g','--gui',"Use with build flag. Launch Fusion GUI.") do
@@ -51,16 +56,12 @@ module Seisan
       end
 
       optparse.parse!
+      
+      actions =  @options[:build], @options[:define], @options[:destroy], @options[:list]
 
-      if @options[:build] and @options[:define]
-        puts "\tBoth 'build' and 'define' were chosen."
-        abort("\tBad option. You can only choose one action.")
-      end
-
-      actions = @options[:build], @options[:define], @options[:destroy], @options[:list]
       check = actions.delete_if {|bool| !bool}
       if check.length > 1
-        abort "You can't choose more than one actions."
+        abort "You can't choose more than one actions.\nNote that you can use --bootstrap flag for build to define AND build."
       end
       if check.length == 0
         abort "No action selected."

@@ -7,9 +7,18 @@ module Seisan
   extend self
 
   def seisan(options)
+
+    ## call 'origami <name>' 
+    if options[:define]
+      $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
+      require 'origami'
+      require 'seisan/define'
+      name = options[:name]
+      define(name)
+    end
+ 
     ## calling 'veewee build'
-    ## I'm not going to figure out how 'Thor' parses options
-    ## hence, using system call.
+    ## just using system call.
     if options[:build]
       require 'seisan/build'
       name = options[:name]
@@ -26,14 +35,6 @@ module Seisan
       list_definitions
     end
     
-    ## call 'origami <name>' 
-    if options[:define]
-      $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
-      require 'origami'
-      require 'seisan/define'
-      name = options[:name]
-      define(name)
-    end
-    
+   
   end#def
 end#Module

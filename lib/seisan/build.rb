@@ -1,8 +1,5 @@
 ### build.rb
 ### builds a VM using veewee
-### I don't understand how 'Thor' parses options
-### and what arguments veewee objects take
-### so just calling veewee from command line
 
 module Seisan
   def build(name,options,veewee_path)
@@ -12,6 +9,16 @@ module Seisan
     print("Passing the work to veewee...\n\n")
 
     command = veewee_command + 'build '
+    if options[:bootstrap]
+      puts "Bootstrap option was selected."
+      $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
+      require 'origami'
+      require 'seisan/define'
+      name = options[:name]
+      define(name)
+      puts "Definition for #{name} has been created."
+      puts "Now initiating its build."
+    end
     if options[:headless]
       command = command + '-n '
     end
