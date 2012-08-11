@@ -24,6 +24,11 @@ module Seisan
       require 'seisan/build'
       name = options[:name]
       build(name,options,veewee_path)
+      if options[:vsphere]
+        require 'seisan/build/to_vsphere'
+        stop_vm(name)
+        send_vm(name)
+      end
     end
 
     if options[:destroy]

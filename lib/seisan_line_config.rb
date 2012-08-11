@@ -13,6 +13,7 @@ module Seisan
   def ks_file_server
     return 'http://192.168.100.225'
   end
+
   def project_root
     root = File.expand_path(
                             File.join(File.dirname(__FILE__), '..')
@@ -33,11 +34,33 @@ module Seisan
   def veewee_command # a shell command
     return "cd #{veewee_path} && bundle exec veewee fusion "
   end
+
+  def vm_path
+    require 'yaml'
+    return YAML.load_file(File.expand_path('~/.fissionrc'))['vm_dir']
+  end
   
+  def vsphere_username
+    return 'atsuya'
+  end
+ 
   def definitions_path
     return File.join( project_root, 'definitions')
   end
   def postscripts_path
     return File.join(project_root, 'post_scripts')
   end
+
+  def datacenter_name
+    return 'vsphere.dc1.puppetlabs.net/dc1'
+  end
+
+  def cluster_name
+    return 'c01'
+  end
+
+  def resourcepool_name
+    return 'AcceptanceTest'
+  end
+  
 end

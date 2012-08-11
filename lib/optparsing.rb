@@ -13,7 +13,6 @@ module Seisan
         @options[:build] = false
         @options[:name] = nil
         opts.on('-b','--build NAME',"Build VM.\n#{"\t"*4 + "\s"*5}It is recommended to 'define' and take a look at confing files before 'build'.\n#{"\t"*4 + "\s"*5}NAME must have the following format: '<distro>-<version>-<arch>-<type>'.") do |name|
-          puts "optparse debug #{name}"
           @options[:build] = true
           @options[:name] = name
         end
@@ -23,6 +22,11 @@ module Seisan
           @options[:bootstrap] = true
         end
         
+        @options[:vsphere] = false
+        opts.on('--vsphere',"Ask vSphere to import the created VM.") do
+          @options[:vsphere] = true
+        end
+      
         @options[:headless] = true
         opts.on('-g','--gui',"Use with build flag. Launch Fusion GUI.") do
           @options[:headless] = false

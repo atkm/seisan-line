@@ -15,6 +15,8 @@ module Seisan
     if options[:force]
       command = command + '-f '
     end
-    exec command + name
+    if system(command + name)
+      puts "#{name} successfully created."
+    end
   end
 end
