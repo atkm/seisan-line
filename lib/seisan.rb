@@ -8,12 +8,23 @@ module Seisan
 
   def seisan(options)
 
+    name = options[:name]
+
+    if options[:destroy]
+      require 'seisan/destroy'
+      destroy(name)
+    end
+
+    if options[:list]
+      require 'seisan/list_definitions'
+      list_definitions
+    end
+
     ## call 'origami <name>' 
     if options[:define] or options[:bootstrap]
       $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
       require 'origami'
       require 'seisan/define'
-      name = options[:name]
       define(name)
       $LOAD_PATH.shift # remove origami path from LOAD_PATH
     end
@@ -22,25 +33,19 @@ module Seisan
     ## just using system call.
     if options[:build]
       require 'seisan/build'
-      name = options[:name]
       build(name,options,veewee_path)
-      if options[:vsphere]
-        require 'seisan/build/to_vsphere'
-        stop_vm(name)
-        send_vm(name)
-      end
     end
 
-    if options[:destroy]
-      require 'seisan/destroy'
-      name = options[:name]
+    if options[:vsphere]
+      require 'seisan/export_to_vsphere'
+      export_to_vsphere(name)
     end
 
-    if options[:list]
-      require 'seisan/list_definitions'
-      list_definitions
+    if options[:templatize]
+      require 'seisan/templatize'
+      templatize(name)
     end
-    
-   
+
+
   end#def
 end#Module

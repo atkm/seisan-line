@@ -23,7 +23,7 @@ module Seisan
   end
   def choose_ks_file_name(name)
     family = Origami.resolve(name)[4]
-    instruction = {'EL' => 'ks.cfg','Deb' => 'preseed.cfg', 'SUSE' => 'autoyast.xml'}
+    instruction = {'EL' => 'ks.cfg','Deb' => 'preseed.cfg', 'SUSE' => 'autoinst.xml'}
     return instruction[family]
   end
 end

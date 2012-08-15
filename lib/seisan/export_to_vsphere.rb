@@ -8,21 +8,29 @@
 ### <pool> = 'AcceptanceTest'
 
 module Seisan
+
   def vsphere_password
     return 'wzzbyCH5iOcora59D0XE'
   end
+
+  def export_to_vsphere(name)
+    stop_vm(name)
+    send_vm(name)
+  end
+
   def send_vm(name)
     puts "Exporting #{name} to vSphere..."
 
     target_vmx = File.join(vm_path, name + '.vmwarevm', name + '.vmx')
 
-    ovf_command = 'ovftool '
-    options = []
-    options << '--diskMode=thin'
-    options << '--vmFolder=AcceptanceTest'
-    options << '--network=acceptancetest'
-    options << '--datastore=hod'
-    ovf_command = ovf_command + options * ' '
+    args = []
+    args << ovftool_path
+    args << '--diskMode=thin'
+    args << '--vmFolder=AcceptanceTest'
+    args << '--network=acceptancetest'
+    args << '--datastore=hod'
+    args << '--powerOffSource'
+    ovf_command = args * ' '
 
     username = nil
     begin
@@ -31,12 +39,14 @@ module Seisan
       puts "Enter username"
       username = gets.strip
     end
+
     passwd = nil
     begin
       passwd = vsphere_password
     rescue
       passwd = Password.get('vSphere password: ')
     end
+    
     datacenter = datacenter_name
     cluster = cluster_name
     resource_pool = resourcepool_name
@@ -44,9 +54,12 @@ module Seisan
     vi_path = 'vi://' + username + ':' + passwd + '@' + File.join(datacenter_name, 'host', cluster_name, 'Resources', resourcepool_name)
 
     command = [ovf_command, target_vmx, vi_path] * ' '
+    puts "Executing #{command}..."
 
     if system(command)
       puts "Done!"
+    else
+      puts "Failed to execute #{command}."
     end
   end
 
@@ -55,7 +68,11 @@ module Seisan
     require 'rubygems'
     require 'fission'
     fission_status = Fission::Command::Status.new
-    return fission_status.execute['name'] == 'running'
+    if fission_status.execute[name] == 'running'
+      return true
+    else
+      return false
+    end
   end
   
   def stop_vm(name)

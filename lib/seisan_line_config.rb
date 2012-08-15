@@ -39,11 +39,11 @@ module Seisan
     require 'yaml'
     return YAML.load_file(File.expand_path('~/.fissionrc'))['vm_dir']
   end
-  
-  def vsphere_username
-    return 'atsuya'
+
+  def ovftool_path
+    return File.expand_path('~/Code/ovftools/ovftool')
   end
- 
+  
   def definitions_path
     return File.join( project_root, 'definitions')
   end
@@ -51,6 +51,11 @@ module Seisan
     return File.join(project_root, 'post_scripts')
   end
 
+ 
+  def vsphere_username
+    return 'atsuya'
+  end
+ 
   def datacenter_name
     return 'vsphere.dc1.puppetlabs.net/dc1'
   end

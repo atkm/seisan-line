@@ -13,8 +13,10 @@ Currently, `origami` does not support these distros. In the meanwhile, veewee do
 ## Installation ##
 Dependencies:
 
-- VMFusion & fission
-- rvm, ruby >= 1.8.7
+- VMFusion
+- ruby >= 1.8.7
+- fission (for stopping vm, which is required for exporting a vm to vSphere)
+- rbvmomi (for marking the exported vm a template)
 
 Procedure:
 
