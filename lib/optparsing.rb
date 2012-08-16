@@ -5,19 +5,24 @@ module Seisan
     attr_reader :options
 
     def self.parse_args
-      
+
       @options = {}
       optparse = OptionParser.new do |opts|
         opts.banner = "Usage: seisan <command>"
-        
+
         @options[:name] = nil
         opts.on('-n','--name NAME', "NAME must have the following format: '<distro>-<version>-<arch>-<type>'.") do |name|
           @options[:name] = name
         end
 
         @options[:build] = false
-        opts.on('-b','--build',"Build VM.") do
+        opts.on('-b','--build',"Build a VMware virtual mahcine.") do
           @options[:build] = true
+        end
+
+        @options[:vbox] = false
+        opts.on('--vbox',"Build a virtualbox instead.") do
+          @options[:vbox] = true
         end
 
         @options[:headless] = true
@@ -34,17 +39,17 @@ module Seisan
         opts.on('--bootstrap',"build option: Create definition before building.") do
           @options[:bootstrap] = true
         end
-        
+
         @options[:vsphere] = false
         opts.on('-v','--vsphere',"build option: Ask vSphere to import the created VM.") do
           @options[:vsphere] = true
         end
-        
+
         @options[:templatize] = false
         opts.on('-t','--templatize',"build option: Mark the VM exported to vSphere as a template.") do
           @options[:templatize] = true
         end
-        
+
         @options[:define] = false
         opts.on('-d','--define NAME',"Create a VM definition for veewee.") do |name|
           @options[:define] = true
@@ -61,7 +66,7 @@ module Seisan
         opts.on('-l','--list') do
           @options[:list] = true
         end
-        
+
         opts.on('-h','--help','show help') do
           puts opts
           exit
@@ -69,11 +74,15 @@ module Seisan
       end
 
       optparse.parse!
-      
+
       return @options
     end
 
     def self.check_actions(options)
+      if options[:name] == nil
+        abort("No name chosen. Please use the -n NAME flag to choose which template to work with.")
+      end 
+
       actions =  options[:build], options[:destroy], options[:list]
       check = actions.delete_if {|bool| !bool}
       if check.length > 1

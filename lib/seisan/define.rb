@@ -7,10 +7,9 @@ Dir[File.dirname(__FILE__) + "/define/*"].each {|helper| require helper}
 
 module Seisan
   def define(name)
-    distro, version, arch, type, family = Origami.resolve(name)
     instruction = Origami.choose_instruction(name)
-    destination = File.join(definitions_path, family, distro, version + '.x', arch, type)
-    Origami.build_from_seed(name,instruction,destination)
+    destination = definition_of_name(name)
+   Origami.build_from_seed(name,instruction,destination)
     puts
     Origami.build_from_seed(name,'definition',destination)
     puts
@@ -20,6 +19,14 @@ module Seisan
     link_definition(name,destination)
     rename_definition(name,destination)
     rename_ks(name,destination)
+    transfer_ks(name,ks_file_server_local)
     transfer_postscripts(name,destination)
   end
+
+  def definition_of_name(name)
+    distro, version, arch, type, family = Origami.resolve(name)
+    definition_dir = File.join(definitions_path, family, distro, version + '.x', arch, type)
+    return definition_dir
+  end
+
 end

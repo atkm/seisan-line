@@ -1,6 +1,7 @@
 #/usr/bin/env ruby
 
-require 'seisan_line_config'
+require 'seisan_config'
+require 'seisan_config_private'
 require 'optparsing'
 
 module Seisan

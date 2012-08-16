@@ -12,7 +12,13 @@ module Seisan
     puts "\t templatize => #{options[:templatize]}."
     print("Passing the work to veewee...\n\n")
 
-    command = veewee_command + 'build '
+    command = nil
+    if options[:vbox]
+      command = veewee_command_vbox
+    else
+      command = veewee_command + 'build '
+    end
+    
     if options[:headless]
       command = command + '-n '
     end
@@ -23,5 +29,9 @@ module Seisan
       puts "#{name} successfully created."
     end
 
-      end 
+  end 
+
+  def veewee_command_vbox
+    return 'veewee vbox'
+  end
 end
