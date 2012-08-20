@@ -99,7 +99,7 @@ For anaconda-based installation (EL), these are:
 
 There are a LOT more options for kickstart file, although these were what I needed for successful deployment of VM by veewee. See [Fedora's kickstart guide](http://fedoraproject.org/wiki/Anaconda/Kickstart) if you need more options.
 
-(These options are deliverately made less mobile because they do not differentiate product VMs by much. The less options you need to tweak, the less yaml files you have to maintain.)  
+(These options are deliberately made less mobile because they do not differentiate product VMs by much. The less options you need to tweak, the less yaml files you have to maintain.)  
 
 These options are defined in `ks_base.rb` and `definition_base.rb` under `origami/lib/[kickstart,definition]`.
 
