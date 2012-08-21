@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
-### seisan.rb
+### seisan
 ### Author: Atsuya Kumano
 ### July 2012
 ### *** I wrote these comments before coding so
 ### *** there may be things that aren't implemented
+### *** README documents all functions.
 ###
-###                    Usage: seisan.rb <COMMAND>
-### COMMAND
-### list box: list all fusion boxes
+###                    Usage: seisan <COMMAND>
+### COMMAND### list box: list all fusion boxes
 ### list definition: list all pairs of definition.rb and ks.cfg ready for use
 ### showdir <name>: show the directories which contain
 ###                   1. VM with name <name>
@@ -26,13 +26,14 @@ end
 project_root =  File.expand_path(
                                  File.join(File.dirname(__FILE__), '..')
                                  )
-project_path = File.join( project_root, 'lib')
-# origami_path = File.join( project_root, 'origami/lib')
+
+if __FILE__ == '/usr/bin/seisan'
+  project_path = File.join( project_root, '../lib/libseisanline')
+else
+  project_path = File.join( project_root, 'lib')
+end
   
 $LOAD_PATH.unshift(project_path) unless $LOAD_PATH.include?(project_path)
-
-# The line beneath is evil.
-# $LOAD_PATH.unshift(origami_path) unless $LOAD_PATH.include?(origami_path)
 
 require 'seisan'
 

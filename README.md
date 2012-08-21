@@ -38,6 +38,8 @@ Procedure:
 	# The format is fairly straight forward. Read origami's documentation if you'd like.
 	# The end.
 
+  Create symlinks from `seisan-line/bin/seisan` to `/usr/bin` and from `seisan-line/lib` to `/usr/lib/libseisanline` if you'd like.
+
 ## Usage ##
 
 Example: Cook up CentOS-5-32-typeA Fusion box.
@@ -103,3 +105,5 @@ There are a LOT more options for kickstart file, although these were what I need
 
 These options are defined in `ks_base.rb` and `definition_base.rb` under `origami/lib/[kickstart,definition]`.
 
+### VirtualBox instead of VMware ###
+Use `--vbox` flag with either `--define` or `--bootstrap`. This will change the `disk_format` in `definiton.rb` from 'VMDK' to 'VDI'. Alternatively, you should change the option in `definition_base.erb` if you use VirtualBox primarily.

@@ -1,3 +1,4 @@
+echo "Executing git-inst.sh"
 # yum -y install gcc zlib-devel openssl-devel cpio expat-devel gettext-devel
 # cd /usr/local/src
 # echo "cd /usr/local/src"
@@ -13,7 +14,5 @@
 # make
 # make install
 
-echo "git-inst.sh:"
-echo "This script is meant for installing git from source."
-echo "However things are commented out b/c I don't need git for the time being."
-echo "See git-inst.sh for instructions."
+#echo "However things are commented out b/c I don't need git for the time being."
+#echo "See git-inst.sh for instructions."

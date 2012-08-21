@@ -22,7 +22,7 @@ module Seisan
     puts "Done."
   end
   def choose_ks_file_name(name)
-    family = Origami.resolve(name)[4]
+    family = Origami::OSName.new(name).resolve[4]
     instruction = {'EL' => 'ks.cfg','Deb' => 'preseed.cfg', 'SUSE' => 'autoinst.xml'}
     return instruction[family]
   end

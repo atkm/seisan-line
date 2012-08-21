@@ -15,6 +15,11 @@ module Seisan
           @options[:name] = name
         end
 
+        @options[:file] = nil
+        opts.on('--file FILE', "Use all names in a file. One name per line!") do |file|
+          @options[:file] = file
+        end
+
         @options[:build] = false
         opts.on('-b','--build',"Build a VMware virtual mahcine.") do
           @options[:build] = true
@@ -79,9 +84,13 @@ module Seisan
     end
 
     def self.check_actions(options)
-      if options[:name] == nil
-        abort("No name chosen. Please use the -n NAME flag to choose which template to work with.")
+      if options[:name] == nil and options[:file] == nil
+        abort("No name chosen. Please use the -n or -f flag to choose which template(s) to work with.")
       end 
+
+      if options[:name] != nil and options[:file] != nil
+        abort("Ambiguous options. Both name and file flags are in use.")
+      end
 
       actions =  options[:build], options[:destroy], options[:list]
       check = actions.delete_if {|bool| !bool}

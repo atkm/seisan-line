@@ -7,11 +7,11 @@ Dir[File.dirname(__FILE__) + "/define/*"].each {|helper| require helper}
 
 module Seisan
   def define(name)
-    instruction = Origami.choose_instruction(name)
+    instruction = Origami::OSName.new(name).instruction
     destination = definition_of_name(name)
-   Origami.build_from_seed(name,instruction,destination)
+   Origami.build(name,instruction,destination)
     puts
-    Origami.build_from_seed(name,'definition',destination)
+    Origami.build(name,'definition',destination)
     puts
     puts "Defining #{name}..."
     definition_file_name = name + '_definition.rb'
@@ -24,7 +24,7 @@ module Seisan
   end
 
   def definition_of_name(name)
-    distro, version, arch, type, family = Origami.resolve(name)
+    distro, version, arch, type, family = Origami::OSName.new(name).resolve
     definition_dir = File.join(definitions_path, family, distro, version + '.x', arch, type)
     return definition_dir
   end
