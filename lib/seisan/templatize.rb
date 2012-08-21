@@ -32,4 +32,5 @@ module Seisan
       puts "Something went wrong. Most likely the VM wasn't properly power off or it was already marked as a template."
     end
 
+  end
 end
