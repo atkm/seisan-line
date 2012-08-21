@@ -9,7 +9,7 @@ module Seisan
   def define(name)
     instruction = Origami::OSName.new(name).instruction
     destination = definition_of_name(name)
-   Origami.build(name,instruction,destination)
+    Origami.build(name,instruction,destination)
     puts
     Origami.build(name,'definition',destination)
     puts

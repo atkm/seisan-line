@@ -42,6 +42,12 @@ Procedure:
 
 ## Usage ##
 
+__Important__:  
+SLES network interface name is not persistent. It hops between eth0 and eth1.
+I have even seen eth2. autoinst\_base.erb must be edited to deal with this situation.
+Find all locaitons of the config file where eth1 (or eth0) is mentioned,
+and create identical entries for ethx.
+
 Example: Cook up CentOS-5-32-typeA Fusion box.
 
 1. Create definition for veewee: `seisan --define CentOS-5-32-typeA`
