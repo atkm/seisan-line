@@ -11,15 +11,19 @@ module Seisan
     puts "Post-scripts required are: "
     puts scripts
     puts "(As defined in origami/lib/definition/seeds/postinstall_files.yml)."
-    puts "Transfering post-scripts to #{destination}."
-    scripts.each do |sh|
-      print( sh + '... ' )
-      from = File.join( postscripts_path, sh)
-      if system("cp #{from} #{destination}")
+    if scripts == nil
+      puts "Nothing to transfer."
+    else
+      puts "Transfering post-scripts to #{destination}."
+      scripts.each do |sh|
+        print( sh + '... ' )
+        from = File.join( postscripts_path, sh)
+        if system("cp #{from} #{destination}")
         puts 'Done.'
+        end
       end
+      puts "Post-script transfer completed."
     end
-    puts "Post-script transfer completed."
   end
 
 end#Module
