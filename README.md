@@ -168,7 +168,7 @@ Other options are shared among all installations.
 To change those options, see 'HowTo: Change pre-defined installation options'
 
 ### Add a new type of an existing distro ###
-The only way to do this currently is to manually a new key-value pairs in each seeds/\*.yml file. A better method coming up soon!
+The only way to do this currently is to manually a new key-value pairs in each seeds/\*.yml file. A better method coming up soon.
 
 ### Add new OS ###
 First, you need to manually create corresponding directories in `seisan-line/definitions`. Then you need to deal with the origami code. As in 'adding a new type of an existing distro', the process is tedious. This code needs to be more scalable.
