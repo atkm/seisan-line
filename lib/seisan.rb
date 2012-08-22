@@ -16,13 +16,6 @@ module Seisan
       names << options[:name]
     end
 
-    if options[:destroy]
-      require 'seisan/destroy'
-      names.each do |name|
-        destroy(name)
-      end
-    end
-
     if options[:list]
       require 'seisan/list_definitions'
       list_definitions
@@ -31,6 +24,14 @@ module Seisan
     ## A long block to go through the specified actions for each name.
     begin
     names.each do |name|
+
+      ## call veewee fusion destroy
+      if options[:destroy]
+        require 'seisan/destroy'
+        names.each do |name|
+          destroy(name)
+        end
+      end
 
       ## call 'origami <name>' 
       if options[:define] or options[:bootstrap]

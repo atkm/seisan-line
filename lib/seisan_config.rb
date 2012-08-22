@@ -31,6 +31,10 @@ module Seisan
     return 'atsuya'
   end
  
+  def vsphere_passwd
+    return 'wzzbyCH5iOcora59D0XE'
+  end
+
   def datacenter_name
     return 'vsphere.dc1.puppetlabs.net/dc1'
   end

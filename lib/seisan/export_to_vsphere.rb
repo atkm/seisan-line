@@ -9,10 +9,6 @@
 
 module Seisan
 
-  def vsphere_password
-    return 'wzzbyCH5iOcora59D0XE'
-  end
-
   def export_to_vsphere(name)
     stop_vm(name)
     send_vm(name)
