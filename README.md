@@ -160,7 +160,7 @@ means `Oracle-5-<whatever arch>-PE` will be built with `openssh-server` installe
 `Oracle-6-<whatever>-FOSS` will be built with `openssh-server`, `git` and `ruby` installed, and so on.
         
 Read origami's documentation if you'd like > 
-[origami documentation](seisan-line/origami/README.md)
+[origami documentation](http://github.com/akumano/origami/README.md)
 
 Note that you can only change the following options by modifying yaml files:
 `pkgs`, `kickstart_file`, `iso_file`, `os_type_id`, `iso_file`, `boot_cmd_sequence`, `postinstall_files`, and `reponame`.
@@ -169,6 +169,10 @@ To change those options, see 'HowTo: Change pre-defined installation options'
 
 ### Add a new type of an existing distro ###
 The only way to do this currently is to manually a new key-value pairs in each seeds/\*.yml file. A better method coming up soon.
+Also, the directory structure must comply to the naming scheme in use, and
+they are __not__ automatically generated. Hence if you wish to create
+a new type you need to create new directories under `definitions` (not `veewee/definitions`).
+For example, here's [the directory tree of my default](seisan-line/docs/definitions_tree.txt)
 
 ### Add new OS ###
 First, you need to manually create corresponding directories in `seisan-line/definitions`. Then you need to deal with the origami code. As in 'adding a new type of an existing distro', the process is tedious. This code needs to be more scalable.
