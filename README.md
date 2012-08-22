@@ -160,7 +160,7 @@ means `Oracle-5-<whatever arch>-PE` will be built with `openssh-server` installe
 `Oracle-6-<whatever>-FOSS` will be built with `openssh-server`, `git` and `ruby` installed, and so on.
         
 Read origami's documentation if you'd like > 
-http://github.com/akumano/origami/README.md
+http://github.com/akumano/origami
 
 Note that you can only change the following options by modifying yaml files:
 `pkgs`, `kickstart_file`, `iso_file`, `os_type_id`, `iso_file`, `boot_cmd_sequence`, `postinstall_files`, and `reponame`.
