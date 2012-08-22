@@ -160,7 +160,7 @@ means `Oracle-5-<whatever arch>-PE` will be built with `openssh-server` installe
 `Oracle-6-<whatever>-FOSS` will be built with `openssh-server`, `git` and `ruby` installed, and so on.
         
 Read origami's documentation if you'd like > 
-[origami documentation](https://github.com/akumano/blob/master/origami/README.md)
+[origami documentation](http://github.com/akumano/origami/README.md)
 
 Note that you can only change the following options by modifying yaml files:
 `pkgs`, `kickstart_file`, `iso_file`, `os_type_id`, `iso_file`, `boot_cmd_sequence`, `postinstall_files`, and `reponame`.
@@ -176,7 +176,7 @@ For example, here's [the directory tree of my default](docs/definitions_tree.txt
 
 ### Add new OS ###
 First, you need to manually create corresponding directories in `seisan-line/definitions`. Then you need to deal with the origami code. As in 'adding a new type of an existing distro', the process is tedious. This code needs to be more scalable.
-[See origami](seisan-line/origami/README.md)
+[See origami](origami/README.md)
 
 ### Change pre-defined (i.e. internally fixed) installation options (such as `network`, `firewall`, and so on) ###
 For anaconda-based installation (EL), these are:
