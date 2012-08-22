@@ -1,0 +1,590 @@
+definitions
+├── Deb
+│   ├── Debian
+│   │   └── 6.x
+│   │       ├── 32
+│   │       │   ├── FOSS
+│   │       │   │   ├── Debian-6-32-FOSS_definition.rb
+│   │       │   │   ├── Debian-6-32-FOSS_preseed.cfg
+│   │       │   │   ├── IGNOREME
+│   │       │   │   ├── deb-base.sh
+│   │       │   │   ├── definition.rb
+│   │       │   │   ├── hello.sh
+│   │       │   │   └── preseed.cfg
+│   │       │   └── PE
+│   │       │       ├── Debian-6-32-PE_definition.rb
+│   │       │       ├── Debian-6-32-PE_preseed.cfg
+│   │       │       ├── Debian-6-32-typeA_definition.rb
+│   │       │       ├── Debian-6-32-typeA_preseed.cfg
+│   │       │       ├── IGNOREME
+│   │       │       ├── deb.sh
+│   │       │       ├── deb1.sh
+│   │       │       ├── definition.rb
+│   │       │       └── preseed.cfg
+│   │       └── 64
+│   │           ├── FOSS
+│   │           │   ├── Debian-6-64-FOSS_definition.rb
+│   │           │   ├── Debian-6-64-FOSS_preseed.cfg
+│   │           │   ├── IGNOREME
+│   │           │   ├── deb.sh
+│   │           │   ├── deb2.sh
+│   │           │   ├── definition.rb
+│   │           │   └── preseed.cfg
+│   │           └── PE
+│   │               ├── Debian-6-64-PE_definition.rb
+│   │               ├── Debian-6-64-PE_preseed.cfg
+│   │               ├── Debian-6-64-typeA_definition.rb
+│   │               ├── Debian-6-64-typeA_preseed.cfg
+│   │               ├── IGNOREME
+│   │               ├── deb-base.sh
+│   │               ├── deb1.sh
+│   │               ├── definition.rb
+│   │               ├── hello.sh
+│   │               └── preseed.cfg
+│   └── Ubuntu
+│       ├── 10.x
+│       │   ├── 32
+│       │   │   ├── FOSS
+│       │   │   │   ├── IGNOREME
+│       │   │   │   ├── Ubuntu-10-32-FOSS_definition.rb
+│       │   │   │   ├── Ubuntu-10-32-FOSS_preseed.cfg
+│       │   │   │   ├── deb-vmwaretools.sh
+│       │   │   │   ├── definition.rb
+│       │   │   │   ├── foss-base-lucid.sh
+│       │   │   │   ├── preseed.cfg
+│       │   │   │   └── puppetlabs-sshkeys.sh
+│       │   │   └── PE
+│       │   │       ├── IGNOREME
+│       │   │       ├── Ubuntu-10-32-PE_definition.rb
+│       │   │       ├── Ubuntu-10-32-PE_preseed.cfg
+│       │   │       ├── Ubuntu-10-32-typeA_definition.rb
+│       │   │       ├── Ubuntu-10-32-typeA_preseed.cfg
+│       │   │       ├── deb-vmwaretools.sh
+│       │   │       ├── deb.sh
+│       │   │       ├── deb1.sh
+│       │   │       ├── definition.rb
+│       │   │       ├── ks.cfg
+│       │   │       ├── pe-base-lucid.sh
+│       │   │       ├── preseed.cfg
+│       │   │       └── puppetlabs-sshkeys.sh
+│       │   └── 64
+│       │       ├── FOSS
+│       │       │   ├── IGNOREME
+│       │       │   ├── Ubuntu-10-64-FOSS_definition.rb
+│       │       │   ├── Ubuntu-10-64-FOSS_preseed.cfg
+│       │       │   ├── deb-vmwaretools.sh
+│       │       │   ├── deb.sh
+│       │       │   ├── deb2.sh
+│       │       │   ├── definition.rb
+│       │       │   ├── foss-base-lucid.sh
+│       │       │   ├── preseed.cfg
+│       │       │   └── puppetlabs-sshkeys.sh
+│       │       └── PE
+│       │           ├── IGNOREME
+│       │           ├── Ubuntu-10-64-PE_definition.rb
+│       │           ├── Ubuntu-10-64-PE_preseed.cfg
+│       │           ├── Ubuntu-10-64-typeA_definition.rb
+│       │           ├── Ubuntu-10-64-typeA_preseed.cfg
+│       │           ├── deb-vmwaretools.sh
+│       │           ├── deb1.sh
+│       │           ├── definition.rb
+│       │           ├── pe-base-lucid.sh
+│       │           ├── preseed.cfg
+│       │           └── puppetlabs-sshkeys.sh
+│       └── 12.x
+│           ├── 32
+│           │   ├── FOSS
+│           │   │   ├── IGNOREME
+│           │   │   ├── Ubuntu-12-32-FOSS_definition.rb
+│           │   │   ├── Ubuntu-12-32-FOSS_preseed.cfg
+│           │   │   ├── Ubuntu-12-32-typeB_definition.rb
+│           │   │   ├── Ubuntu-12-32-typeB_preseed.cfg
+│           │   │   ├── deb-base.sh
+│           │   │   ├── deb.sh
+│           │   │   ├── deb2.sh
+│           │   │   ├── definition.rb
+│           │   │   ├── foss-base-precise.sh
+│           │   │   └── preseed.cfg
+│           │   └── PE
+│           │       ├── IGNOREME
+│           │       ├── Ubuntu-12-32-PE_definition.rb
+│           │       ├── Ubuntu-12-32-PE_preseed.cfg
+│           │       ├── Ubuntu-12-32-typeA_definition.rb
+│           │       ├── Ubuntu-12-32-typeA_preseed.cfg
+│           │       ├── deb.sh
+│           │       ├── deb1.sh
+│           │       ├── definition.rb
+│           │       └── preseed.cfg
+│           └── 64
+│               ├── FOSS
+│               │   └── IGNOREME
+│               └── PE
+│                   ├── IGNOREME
+│                   ├── Ubuntu-12-64-PE_definition.rb
+│                   ├── Ubuntu-12-64-PE_preseed.cfg
+│                   ├── Ubuntu-12-64-typeA_definition.rb
+│                   ├── Ubuntu-12-64-typeA_preseed.cfg
+│                   ├── deb-base.sh
+│                   ├── deb.sh
+│                   ├── deb1.sh
+│                   ├── definition.rb
+│                   ├── pe-base-precise.sh
+│                   └── preseed.cfg
+├── EL
+│   ├── CentOS
+│   │   ├── 4.x
+│   │   │   ├── 32
+│   │   │   │   ├── typeA
+│   │   │   │   │   └── IGNOREME
+│   │   │   │   └── typeB
+│   │   │   │       └── IGNOREME
+│   │   │   └── 64
+│   │   │       ├── typeA
+│   │   │       │   └── IGNOREME
+│   │   │       └── typeB
+│   │   │           └── IGNOREME
+│   │   ├── 5.x
+│   │   │   ├── 32
+│   │   │   │   ├── FOSS
+│   │   │   │   │   ├── CentOS-5-32-FOSS_definition.rb
+│   │   │   │   │   ├── CentOS-5-32-FOSS_ks.cfg
+│   │   │   │   │   ├── CentOS-5-32-typeB_definition.rb
+│   │   │   │   │   ├── CentOS-5-32-typeB_ks.cfg
+│   │   │   │   │   ├── IGNOREME
+│   │   │   │   │   ├── definition.rb
+│   │   │   │   │   ├── el-5-base.sh
+│   │   │   │   │   ├── el-vmwaretools.sh
+│   │   │   │   │   ├── git-inst.sh
+│   │   │   │   │   ├── hello.sh
+│   │   │   │   │   ├── ks.cfg
+│   │   │   │   │   ├── puppetlabs-sshkeys.sh
+│   │   │   │   │   └── typeB.sh
+│   │   │   │   └── PE
+│   │   │   │       ├── CentOS-5-32-PE_definition.rb
+│   │   │   │       ├── CentOS-5-32-PE_ks.cfg
+│   │   │   │       ├── CentOS-5-32-typeA_definition.rb
+│   │   │   │       ├── CentOS-5-32-typeA_ks.cfg
+│   │   │   │       ├── IGNOREME
+│   │   │   │       ├── definition.rb
+│   │   │   │       ├── el-5-base.sh
+│   │   │   │       ├── el-vmwaretools.sh
+│   │   │   │       ├── git-inst.sh
+│   │   │   │       ├── hello.sh
+│   │   │   │       ├── ks.cfg
+│   │   │   │       ├── puppetlabs-sshkeys.sh
+│   │   │   │       └── typeA.sh
+│   │   │   └── 64
+│   │   │       ├── FOSS
+│   │   │       │   ├── CentOS-5-64-FOSS_definition.rb
+│   │   │       │   ├── CentOS-5-64-FOSS_ks.cfg
+│   │   │       │   ├── CentOS-5-64-typeB_definition.rb
+│   │   │       │   ├── CentOS-5-64-typeB_ks.cfg
+│   │   │       │   ├── IGNOREME
+│   │   │       │   ├── definition.rb
+│   │   │       │   ├── el-5-base.sh
+│   │   │       │   ├── el-vmwaretools.sh
+│   │   │       │   ├── git-inst.sh
+│   │   │       │   ├── hello.sh
+│   │   │       │   ├── ks.cfg
+│   │   │       │   ├── puppetlabs-sshkeys.sh
+│   │   │       │   └── typeB.sh
+│   │   │       └── PE
+│   │   │           ├── CentOS-5-64-PE_definition.rb
+│   │   │           ├── CentOS-5-64-PE_ks.cfg
+│   │   │           ├── CentOS-5-64-typeA_definition.rb
+│   │   │           ├── CentOS-5-64-typeA_ks.cfg
+│   │   │           ├── IGNOREME
+│   │   │           ├── definition.rb
+│   │   │           ├── el-5-base.sh
+│   │   │           ├── el-vmwaretools.sh
+│   │   │           ├── git-inst.sh
+│   │   │           ├── hello.sh
+│   │   │           ├── ks.cfg
+│   │   │           ├── puppetlabs-sshkeys.sh
+│   │   │           └── typeA.sh
+│   │   └── 6.x
+│   │       ├── 32
+│   │       │   ├── FOSS
+│   │       │   │   ├── CentOS-6-32-typeB_definition.rb
+│   │       │   │   ├── CentOS-6-32-typeB_ks.cfg
+│   │       │   │   ├── definition.rb
+│   │       │   │   ├── hello.sh
+│   │       │   │   ├── ks.cfg
+│   │       │   │   └── typeB.sh
+│   │       │   └── PE
+│   │       │       ├── CentOS-6-32-PE_definition.rb
+│   │       │       ├── CentOS-6-32-PE_ks.cfg
+│   │       │       ├── CentOS-6-32-typeA_definition.rb
+│   │       │       ├── CentOS-6-32-typeA_ks.cfg
+│   │       │       ├── IGNOREME
+│   │       │       ├── base.sh
+│   │       │       ├── definition.rb
+│   │       │       ├── el-vmwaretools.sh
+│   │       │       ├── hello.sh
+│   │       │       ├── ks.cfg
+│   │       │       ├── puppetlabs-sshkeys.sh
+│   │       │       ├── typeA.sh
+│   │       │       └── virtualbox.sh
+│   │       └── 64
+│   │           ├── FOSS
+│   │           │   ├── CentOS-6-64-FOSS_definition.rb
+│   │           │   ├── CentOS-6-64-FOSS_ks.cfg
+│   │           │   ├── CentOS-6-64-typeB_definition.rb
+│   │           │   ├── CentOS-6-64-typeB_ks.cfg
+│   │           │   ├── IGNOREME
+│   │           │   ├── definition.rb
+│   │           │   ├── el-vmwaretools.sh
+│   │           │   ├── hello.sh
+│   │           │   ├── ks.cfg
+│   │           │   ├── puppetlabs-sshkeys.sh
+│   │           │   └── typeB.sh
+│   │           └── PE
+│   │               ├── CentOS-6-64-typeA_definition.rb
+│   │               ├── CentOS-6-64-typeA_ks.cfg
+│   │               ├── IGNOREME
+│   │               ├── definition.rb
+│   │               ├── hello.sh
+│   │               ├── ks.cfg
+│   │               └── typeA.sh
+│   ├── Oracle
+│   │   ├── 4.x
+│   │   │   ├── 32
+│   │   │   │   ├── typeA
+│   │   │   │   │   └── IGNOREME
+│   │   │   │   └── typeB
+│   │   │   │       └── IGNOREME
+│   │   │   └── 64
+│   │   │       ├── typeA
+│   │   │       │   └── IGNOREME
+│   │   │       └── typeB
+│   │   │           └── IGNOREME
+│   │   ├── 5.x
+│   │   │   ├── 32
+│   │   │   │   ├── FOSS
+│   │   │   │   │   ├── IGNOREME
+│   │   │   │   │   ├── Oracle-5-32-typeB_definition.rb
+│   │   │   │   │   ├── Oracle-5-32-typeB_ks.cfg
+│   │   │   │   │   ├── definition.rb
+│   │   │   │   │   ├── git-inst.sh
+│   │   │   │   │   ├── hello.sh
+│   │   │   │   │   ├── ks.cfg
+│   │   │   │   │   └── typeB.sh
+│   │   │   │   └── PE
+│   │   │   │       ├── IGNOREME
+│   │   │   │       ├── Oracle-5-32-PE_definition.rb
+│   │   │   │       ├── Oracle-5-32-PE_ks.cfg
+│   │   │   │       ├── Oracle-5-32-typeA_definition.rb
+│   │   │   │       ├── Oracle-5-32-typeA_ks.cfg
+│   │   │   │       ├── definition.rb
+│   │   │   │       ├── el-5-base.sh
+│   │   │   │       ├── el-vmwaretools.sh
+│   │   │   │       ├── git-inst.sh
+│   │   │   │       ├── hello.sh
+│   │   │   │       ├── ks.cfg
+│   │   │   │       ├── puppetlabs-sshkeys.sh
+│   │   │   │       └── typeA.sh
+│   │   │   └── 64
+│   │   │       ├── FOSS
+│   │   │       │   ├── IGNOREME
+│   │   │       │   ├── Oracle-5-64-FOSS_definition.rb
+│   │   │       │   ├── Oracle-5-64-FOSS_ks.cfg
+│   │   │       │   ├── Oracle-5-64-typeB_definition.rb
+│   │   │       │   ├── Oracle-5-64-typeB_ks.cfg
+│   │   │       │   ├── definition.rb
+│   │   │       │   ├── el-5-base.sh
+│   │   │       │   ├── el-vmwaretools.sh
+│   │   │       │   ├── git-inst.sh
+│   │   │       │   ├── hello.sh
+│   │   │       │   ├── ks.cfg
+│   │   │       │   ├── puppetlabs-sshkeys.sh
+│   │   │       │   └── typeB.sh
+│   │   │       └── PE
+│   │   │           ├── IGNOREME
+│   │   │           ├── Oracle-5-64-typeA_definition.rb
+│   │   │           ├── Oracle-5-64-typeA_ks.cfg
+│   │   │           ├── definition.rb
+│   │   │           ├── git-inst.sh
+│   │   │           ├── hello.sh
+│   │   │           ├── ks.cfg
+│   │   │           └── typeA.sh
+│   │   └── 6.x
+│   │       ├── 32
+│   │       │   ├── FOSS
+│   │       │   │   ├── IGNOREME
+│   │       │   │   ├── Oracle-6-32-typeB_definition.rb
+│   │       │   │   ├── Oracle-6-32-typeB_ks.cfg
+│   │       │   │   ├── definition.rb
+│   │       │   │   ├── hello.sh
+│   │       │   │   ├── ks.cfg
+│   │       │   │   └── typeB.sh
+│   │       │   └── PE
+│   │       │       ├── IGNOREME
+│   │       │       ├── Oracle-6-32-typeA_definition.rb
+│   │       │       ├── Oracle-6-32-typeA_ks.cfg
+│   │       │       ├── definition.rb
+│   │       │       ├── hello.sh
+│   │       │       ├── ks.cfg
+│   │       │       └── typeA.sh
+│   │       └── 64
+│   │           ├── FOSS
+│   │           │   ├── IGNOREME
+│   │           │   ├── Oracle-6-64-FOSS_definition.rb
+│   │           │   ├── Oracle-6-64-FOSS_ks.cfg
+│   │           │   ├── Oracle-6-64-typeB_definition.rb
+│   │           │   ├── Oracle-6-64-typeB_ks.cfg
+│   │           │   ├── definition.rb
+│   │           │   ├── el-vmwaretools.sh
+│   │           │   ├── hello.sh
+│   │           │   ├── ks.cfg
+│   │           │   ├── puppetlabs-sshkeys.sh
+│   │           │   └── typeB.sh
+│   │           └── PE
+│   │               ├── IGNOREME
+│   │               ├── Oracle-6-64-PE_definition.rb
+│   │               ├── Oracle-6-64-PE_ks.cfg
+│   │               ├── Oracle-6-64-typeA_definition.rb
+│   │               ├── Oracle-6-64-typeA_ks.cfg
+│   │               ├── definition.rb
+│   │               ├── el-vmwaretools.sh
+│   │               ├── hello.sh
+│   │               ├── ks.cfg
+│   │               ├── puppetlabs-sshkeys.sh
+│   │               └── typeA.sh
+│   ├── RedHat
+│   │   ├── 4.x
+│   │   │   ├── 32
+│   │   │   │   ├── typeA
+│   │   │   │   │   └── IGNOREME
+│   │   │   │   └── typeB
+│   │   │   │       └── IGNOREME
+│   │   │   └── 64
+│   │   │       ├── typeA
+│   │   │       │   └── IGNOREME
+│   │   │       └── typeB
+│   │   │           └── IGNOREME
+│   │   ├── 5.x
+│   │   │   ├── 32
+│   │   │   │   ├── FOSS
+│   │   │   │   │   ├── IGNOREME
+│   │   │   │   │   ├── RedHat-5-32-typeB_definition.rb
+│   │   │   │   │   ├── RedHat-5-32-typeB_ks.cfg
+│   │   │   │   │   ├── definition.rb
+│   │   │   │   │   ├── git-inst.sh
+│   │   │   │   │   ├── hello.sh
+│   │   │   │   │   ├── ks.cfg
+│   │   │   │   │   └── typeB.sh
+│   │   │   │   └── PE
+│   │   │   │       ├── IGNOREME
+│   │   │   │       ├── RedHat-5-32-typeA_definition.rb
+│   │   │   │       ├── RedHat-5-32-typeA_ks.cfg
+│   │   │   │       ├── definition.rb
+│   │   │   │       ├── git-inst.sh
+│   │   │   │       ├── hello.sh
+│   │   │   │       ├── ks.cfg
+│   │   │   │       └── typeA.sh
+│   │   │   └── 64
+│   │   │       ├── FOSS
+│   │   │       │   ├── IGNOREME
+│   │   │       │   ├── RedHat-5-64-typeB_definition.rb
+│   │   │       │   ├── RedHat-5-64-typeB_ks.cfg
+│   │   │       │   ├── definition.rb
+│   │   │       │   ├── git-inst.sh
+│   │   │       │   ├── hello.sh
+│   │   │       │   ├── ks.cfg
+│   │   │       │   └── typeB.sh
+│   │   │       └── PE
+│   │   │           ├── IGNOREME
+│   │   │           ├── RedHat-5-64-typeA_definition.rb
+│   │   │           ├── RedHat-5-64-typeA_ks.cfg
+│   │   │           ├── definition.rb
+│   │   │           ├── git-inst.sh
+│   │   │           ├── hello.sh
+│   │   │           ├── ks.cfg
+│   │   │           └── typeA.sh
+│   │   └── 6.x
+│   │       ├── 32
+│   │       │   ├── FOSS
+│   │       │   │   ├── IGNOREME
+│   │       │   │   ├── RedHat-6-32-typeB_definition.rb
+│   │       │   │   ├── RedHat-6-32-typeB_ks.cfg
+│   │       │   │   ├── definition.rb
+│   │       │   │   ├── hello.sh
+│   │       │   │   ├── ks.cfg
+│   │       │   │   └── typeB.sh
+│   │       │   └── PE
+│   │       │       ├── IGNOREME
+│   │       │       ├── RedHat-6-32-PE_definition.rb
+│   │       │       ├── RedHat-6-32-PE_ks.cfg
+│   │       │       ├── RedHat-6-32-typeA_definition.rb
+│   │       │       ├── RedHat-6-32-typeA_ks.cfg
+│   │       │       ├── definition.rb
+│   │       │       ├── el-vmwaretools.sh
+│   │       │       ├── hello.sh
+│   │       │       ├── ks.cfg
+│   │       │       ├── puppetlabs-sshkeys.sh
+│   │       │       └── typeA.sh
+│   │       └── 64
+│   │           ├── FOSS
+│   │           │   ├── IGNOREME
+│   │           │   ├── RedHat-6-64-FOSS_definition.rb
+│   │           │   ├── RedHat-6-64-FOSS_ks.cfg
+│   │           │   ├── RedHat-6-64-typeB_definition.rb
+│   │           │   ├── RedHat-6-64-typeB_ks.cfg
+│   │           │   ├── definition.rb
+│   │           │   ├── el-vmwaretools.sh
+│   │           │   ├── hello.sh
+│   │           │   ├── ks.cfg
+│   │           │   ├── puppetlabs-sshkeys.sh
+│   │           │   └── typeB.sh
+│   │           └── PE
+│   │               ├── IGNOREME
+│   │               ├── RedHat-6-64-typeA_definition.rb
+│   │               ├── RedHat-6-64-typeA_ks.cfg
+│   │               ├── definition.rb
+│   │               ├── hello.sh
+│   │               ├── ks.cfg
+│   │               └── typeA.sh
+│   └── SL
+│       ├── 4.x
+│       │   ├── 32
+│       │   │   ├── typeA
+│       │   │   │   └── IGNOREME
+│       │   │   └── typeB
+│       │   │       └── IGNOREME
+│       │   └── 64
+│       │       ├── typeA
+│       │       │   └── IGNOREME
+│       │       └── typeB
+│       │           └── IGNOREME
+│       ├── 5.x
+│       │   ├── 32
+│       │   │   ├── FOSS
+│       │   │   │   ├── IGNOREME
+│       │   │   │   ├── SL-5-32-FOSS_definition.rb
+│       │   │   │   ├── SL-5-32-FOSS_ks.cfg
+│       │   │   │   ├── SL-5-32-typeB_definition.rb
+│       │   │   │   ├── SL-5-32-typeB_ks.cfg
+│       │   │   │   ├── definition.rb
+│       │   │   │   ├── el-5-base.sh
+│       │   │   │   ├── el-vmwaretools.sh
+│       │   │   │   ├── git-inst.sh
+│       │   │   │   ├── hello.sh
+│       │   │   │   ├── ks.cfg
+│       │   │   │   ├── puppetlabs-sshkeys.sh
+│       │   │   │   └── typeB.sh
+│       │   │   └── PE
+│       │   │       ├── IGNOREME
+│       │   │       ├── SL-5-32-typeA_definition.rb
+│       │   │       ├── SL-5-32-typeA_ks.cfg
+│       │   │       ├── definition.rb
+│       │   │       ├── git-inst.sh
+│       │   │       ├── hello.sh
+│       │   │       ├── ks.cfg
+│       │   │       └── typeA.sh
+│       │   └── 64
+│       │       ├── FOSS
+│       │       │   ├── IGNOREME
+│       │       │   ├── SL-5-64-typeB_definition.rb
+│       │       │   ├── SL-5-64-typeB_ks.cfg
+│       │       │   ├── definition.rb
+│       │       │   ├── git-inst.sh
+│       │       │   ├── hello.sh
+│       │       │   ├── ks.cfg
+│       │       │   └── typeB.sh
+│       │       └── PE
+│       │           ├── IGNOREME
+│       │           ├── SL-5-64-PE_definition.rb
+│       │           ├── SL-5-64-PE_ks.cfg
+│       │           ├── SL-5-64-typeA_definition.rb
+│       │           ├── SL-5-64-typeA_ks.cfg
+│       │           ├── definition.rb
+│       │           ├── el-5-base.sh
+│       │           ├── el-vmwaretools.sh
+│       │           ├── git-inst.sh
+│       │           ├── hello.sh
+│       │           ├── ks.cfg
+│       │           ├── puppetlabs-sshkeys.sh
+│       │           └── typeA.sh
+│       └── 6.x
+│           ├── 32
+│           │   ├── FOSS
+│           │   │   ├── IGNOREME
+│           │   │   ├── SL-6-32-FOSS_definition.rb
+│           │   │   ├── SL-6-32-FOSS_ks.cfg
+│           │   │   ├── SL-6-32-typeB_definition.rb
+│           │   │   ├── SL-6-32-typeB_ks.cfg
+│           │   │   ├── definition.rb
+│           │   │   ├── el-vmwaretools.sh
+│           │   │   ├── hello.sh
+│           │   │   ├── ks.cfg
+│           │   │   ├── puppetlabs-sshkeys.sh
+│           │   │   └── typeB.sh
+│           │   └── PE
+│           │       ├── IGNOREME
+│           │       ├── SL-6-32-PE_definition.rb
+│           │       ├── SL-6-32-PE_ks.cfg
+│           │       ├── SL-6-32-typeA_definition.rb
+│           │       ├── SL-6-32-typeA_ks.cfg
+│           │       ├── definition.rb
+│           │       ├── el-vmwaretools.sh
+│           │       ├── hello.sh
+│           │       ├── ks.cfg
+│           │       ├── puppetlabs-sshkeys.sh
+│           │       └── typeA.sh
+│           └── 64
+│               ├── FOSS
+│               │   ├── IGNOREME
+│               │   ├── SL-6-64-typeB_definition.rb
+│               │   ├── SL-6-64-typeB_ks.cfg
+│               │   ├── definition.rb
+│               │   ├── hello.sh
+│               │   ├── ks.cfg
+│               │   └── typeB.sh
+│               └── PE
+│                   ├── IGNOREME
+│                   ├── SL-6-64-typeA_definition.rb
+│                   ├── SL-6-64-typeA_ks.cfg
+│                   ├── definition.rb
+│                   ├── hello.sh
+│                   ├── ks.cfg
+│                   └── typeA.sh
+├── SUSE
+│   └── SLES
+│       └── 11.x
+│           ├── 32
+│           │   ├── FOSS
+│           │   │   ├── IGNOREME
+│           │   │   ├── SLES-11-32-FOSS_autoinst.xml
+│           │   │   ├── SLES-11-32-FOSS_definition.rb
+│           │   │   ├── SLES-11-32-typeB_autoinst.xml
+│           │   │   ├── SLES-11-32-typeB_definition.rb
+│           │   │   ├── autoinst.xml
+│           │   │   ├── definition.rb
+│           │   │   ├── sles-base.sh
+│           │   │   ├── sles-vmwaretools.sh
+│           │   │   └── sles2.sh
+│           │   └── PE
+│           │       ├── IGNOREME
+│           │       ├── SLES-11-32-PE_autoinst.xml
+│           │       ├── SLES-11-32-PE_definition.rb
+│           │       ├── SLES-11-32-typeA_autoinst.xml
+│           │       ├── SLES-11-32-typeA_definition.rb
+│           │       ├── autoinst.xml
+│           │       ├── definition.rb
+│           │       ├── sles-base.sh
+│           │       ├── sles-vmwaretools.sh
+│           │       └── sles1.sh
+│           └── 64
+│               ├── FOSS
+│               │   ├── IGNOREME
+│               │   ├── SLES-11-64-FOSS_autoinst.xml
+│               │   ├── SLES-11-64-FOSS_definition.rb
+│               │   ├── autoinst.xml
+│               │   ├── definition.rb
+│               │   ├── sles-base.sh
+│               │   └── sles-vmwaretools.sh
+│               └── PE
+│                   └── IGNOREME
+└── create_gitignore_in_type_dir.rb
+
+122 directories, 465 files
