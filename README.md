@@ -172,7 +172,7 @@ The only way to do this currently is to manually a new key-value pairs in each s
 Also, the directory structure must comply to the naming scheme in use, and
 they are __not__ automatically generated. Hence if you wish to create
 a new type you need to create new directories under `definitions` (not `veewee/definitions`).
-For example, here's [the directory tree of my default](seisan-line/docs/definitions_tree.txt)
+For example, here's [the directory tree of my default](docs/definitions_tree.txt)
 
 ### Add new OS ###
 First, you need to manually create corresponding directories in `seisan-line/definitions`. Then you need to deal with the origami code. As in 'adding a new type of an existing distro', the process is tedious. This code needs to be more scalable.
