@@ -107,7 +107,7 @@ and 'autoyast'.)
     - Force option (`--force`): force creation of VM even if a VM of the same
      name exists (i.e. destroy the pre-existing one).
     - GUI option (`-g` or `--gui`): launch up VMFusion GUI while installation
-    - VirtualBox option (`--vbox`): make a small change in `definition.rb` to tell veewee to build a VM with virtualbox.
+    - (Not implemented yet) VirtualBox option (`--vbox`): make a small change in `definition.rb` to tell veewee to build a VM with virtualbox.
 
 - `--vsphere`:
     - Export a VM to vSphere. `lib/seisan_config.rb` needs to be edited.
@@ -168,25 +168,21 @@ Other options are shared among all installations.
 To change those options, see 'HowTo: Change pre-defined installation options'
 
 ### Add a new type of an existing distro ###
-The only way to do this currently is to manually a new key-value pairs in each seeds/\*.yml file. A better method coming up soon.
+The only way to do this currently is to manually a new key-value pairs in each `origami/lib/origami/inventory/[kickstart|definition]/seeds/*.yml` file.
+A more convenient method to modify the yaml files is coming up soon.
 Also, the directory structure must comply to the naming scheme in use, and
 they are __not__ automatically generated. Hence if you wish to create
 a new type you need to create new directories under `definitions` (not `veewee/definitions`).
-For example, here's [the directory tree of my default](docs/definitions_tree.txt)
+For example, here's [the directory tree of my default](docs/definitions_tree.txt).
 
 ### Add new OS ###
-First, you need to manually create corresponding directories in `seisan-line/definitions`. Then you need to deal with the origami code. As in 'adding a new type of an existing distro', the process is tedious. This code needs to be more scalable.
-See origami: http://github.com/akumano/origami
+If your new OS uses kickstart, preseed or autoyast, procedures to add the OS is identical to adding a new type (see the previous entry).
+Otherwise, create a new directory under `origami/lib/origami/inventory`, and copy structures of other inventories.
+For example, `inventory/kickstart` has [this structure](docs/inventory_kickstart_tree.txt).
 
-### Change pre-defined (i.e. internally fixed) installation options (such as `network`, `firewall`, and so on) ###
-For anaconda-based installation (EL), these are:
-(Kickstart:)`install_option,`, `lang`, `keyboard`, `network`, `rootpw`, `firewall`, `authconfig`, `selinux`, `timezone`, `bootloader`, `skipx`, `partition`, `power_option`, `baseurl`, (veewee-definition:)`cpu_count`, `memory_size`, `disk_size`, `disk_format`, `hostiocache`, `ioapic`, `pae`, `iso_src`, `iso_md5`, `iso_download_timeout`, `boot_wait`, `kickstart_port`, `kickstart_timeout`, `ssh_login_timeout`, `ssh_user`, `ssh_password`, `ssh_key`, `ssh_host_port`, `ssh_guest_port`, `sudo_cmd`, `shutdown_cmd`, `postinstall_timeout`.
+### Change pre-defined installation options (such as `network`, `firewall`, and so on) ###
+These options are defined in `ks_base.erb` and `definition_base.erb` under `origami/lib/origami/inventory/[kickstart,definition]`.
 
-Evidently, there are a LOT more options for kickstart file, although these were what I needed for successful deployment of VM. See [Fedora's kickstart guide](http://fedoraproject.org/wiki/Anaconda/Kickstart) if you need to tweak something.
 
-(These options are deliberately made less mobile because they do not differentiate product VMs by much. The less options you need to tweak, the less yaml files you have to maintain.)  
-
-These options are defined in `ks_base.rb` and `definition_base.rb` under `origami/lib/[kickstart,definition]`.
-
-### VirtualBox instead of VMware ###
+### VirtualBox instead of VMware (not supported yet) ###
 Use `--vbox` flag with either `--define` or `--bootstrap`. This will change the `disk_format` in `definiton.rb` from 'VMDK' to 'VDI'. Alternatively, you should change the option in `definition_base.erb` if you use VirtualBox primarily.
