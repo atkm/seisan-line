@@ -26,6 +26,9 @@ Procedure:
     git submodule init   # 'origami' and 'veewee' are used as submodules
     git submodule update # fetch repos as specified in .gitmodule
     gem install fission rbvmomi
+    vim lib/seisan_config.rb # edit it
+    touch ~/.seisanrc.yml
+    vim ~/.seisanrc.yml # see example
     # The lines below set up veewee.
     cd veewee
     gem install bundler
@@ -134,7 +137,7 @@ __NAME format__:
 
 ## How to: ##
 ### Change installation options ###
-Take a look at `origami/lib/inventory/[kickstart,preseed,autoinst,definition]/seeds/\*.yml`
+Take a look at `origami/lib/inventory/[kickstart,preseed,autoinst,definition]/seeds/*.yml`
 and change installation options. The format is fairly straight forward.
 For example,
     
@@ -176,13 +179,22 @@ a new type you need to create new directories under `definitions` (not `veewee/d
 For example, here's [the directory tree of my default](docs/definitions_tree.txt).
 
 ### Add new OS ###
-If your new OS uses kickstart, preseed or autoyast, procedures to add the OS is identical to adding a new type (see the previous entry).
+If your new OS uses kickstart, preseed or autoyast, procedures to adding the OS is identical to adding a new type (see the previous entry).
 Otherwise, create a new directory under `origami/lib/origami/inventory`, and copy structures of other inventories.
 For example, `inventory/kickstart` has [this structure](docs/inventory_kickstart_tree.txt).
+`definition_base.erb` is a master template for `definition.rb` with some parameters extracted.
+These parameters are what you create yaml files for. Place the yaml files in `seeds/` directory.
+Then configure origami to read your new inventory. This is done across codes under `lib/origami/core/`.
 
 ### Change pre-defined installation options (such as `network`, `firewall`, and so on) ###
-These options are defined in `ks_base.erb` and `definition_base.erb` under `origami/lib/origami/inventory/[kickstart,definition]`.
-
+These options are defined in `*_base.erb` files under `origami/lib/origami/inventory/*/`.
 
 ### VirtualBox instead of VMware (not supported yet) ###
 Use `--vbox` flag with either `--define` or `--bootstrap`. This will change the `disk_format` in `definiton.rb` from 'VMDK' to 'VDI'. Alternatively, you should change the option in `definition_base.erb` if you use VirtualBox primarily.
+
+## To Do ##
+- Read inventory automatically
+- `--vbox` flag
+- An abstraction layer over seed yaml files  
+  e.g. `seisan --config CentOS-*-*-FOSS --param pkgs --val [openssh-server, ntp, vim, emacs, ruby]`
+  changes hash values of keys that match `CentOS-*-*-FOSS` in `pkgs.yml` to `[openssh-server, ntp, vim, emacs, ruby]`. 

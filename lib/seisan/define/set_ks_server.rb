@@ -37,7 +37,7 @@ if __FILE__==$0
     extend self
   end
   definition_file = File.expand_path('~/Code/otherstuff/ERB/ipreplacement/test_definition.rb')
-  server_addr = 'http://192.168.100.225'
+  server_addr = ks_file_server
   result = Origami.set_ks_server(definition_file, server_addr)
   puts result
 end
