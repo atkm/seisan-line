@@ -1,0 +1,4 @@
+RedHat-6-32-PE
+RedHat-6-64-PE
+RedHat-6-32-FOSS
+RedHat-6-64-FOSS

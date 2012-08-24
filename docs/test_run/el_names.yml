@@ -1,0 +1,21 @@
+### List of distros to test
+### The ones commented out are those successfully built
+### Skipped all typeB since they are the same as typeA
+### except for the packages and post-install scripts.
+
+#- CentOS-5-32-typeA
+#- CentOS-5-64-typeA # "Media test" <- tell it to skip from ks.cfg <- worked second time... fluke?
+#- RedHat-5-32-typeA <- asking for subscription number! <- skipped it and went fine... until it asked for disc 2
+#- RedHat-5-64-typeA <- exactly the same as 32-bit
+#- Oracle-5-32-typeA
+#- Oracle-5-64-typeA
+#- SL-5-32-typeA
+#- SL-5-64-typeA
+#- CentOS-6-32-typeA
+#- CentOS-6-64-typeA
+#- RedHat-6-32-typeA
+#- RedHat-6-64-typeA
+- Oracle-6-32-typeA # <- 'Could not find kernel image. text' possibly bad iso
+#- Oracle-6-64-typeA
+#- SL-6-32-typeA
+- SL-6-64-typeA # <- "Please insert disc 2 to continue" = bad iso

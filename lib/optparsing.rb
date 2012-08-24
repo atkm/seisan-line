@@ -8,67 +8,73 @@ module Seisan
 
       @options = {}
       optparse = OptionParser.new do |opts|
-        opts.banner = "Usage: seisan <command>"
+        opts.banner = 
+        "
+        Usage: seisan [--file FILE | --name NAME] [ACTION]* [OPTION]*
+       -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+        Specify a NAME or a list of NAMEs in a FILE, act on those with ACTIONs.
+        '--name' flag takes only one NAME as an argument.
+        To act on more than one NAMEs, use the '--file' flag.
+        "
 
         @options[:name] = nil
         opts.on('-n','--name NAME', "NAME must have the following format: '<distro>-<version>-<arch>-<type>'.") do |name|
           @options[:name] = name
         end
 
+        @options[:file] = nil
+        opts.on('-f','--file FILE', "Use all names in a file. One name per line!") do |file|
+          @options[:file] = file
+        end
+
         @options[:build] = false
-        opts.on('-b','--build',"Build a VMware virtual mahcine.") do
+        opts.on('-b','--build',"(action) Build a VMware virtual mahcine.") do
           @options[:build] = true
         end
 
         @options[:vbox] = false
-        opts.on('--vbox',"Build a virtualbox instead.") do
+        opts.on('--vbox',"(build option) Build a virtualbox instead.") do
           @options[:vbox] = true
         end
 
         @options[:headless] = true
-        opts.on('-g','--gui',"build option: Launch Fusion GUI while installation.") do
+        opts.on('-g','--gui',"(build option) Launch Fusion GUI while installation.") do
           @options[:headless] = false
         end
 
         @options[:force] = false
-        opts.on('-f','--force',"build option. Destroy the existing VM of the same name then create.") do
+        opts.on('--force',"(build option) Destroy the existing VM of the same name then create.") do
           @options[:force] = true
         end
 
         @options[:bootstrap] = false
-        opts.on('--bootstrap',"build option: Create definition before building.") do
+        opts.on('-d','--define','--bootstrap', "(action): Create a definition for VM.") do
           @options[:bootstrap] = true
         end
 
         @options[:vsphere] = false
-        opts.on('-v','--vsphere',"build option: Ask vSphere to import the created VM.") do
+        opts.on('-v','--vsphere',"(action): Ask vSphere to import an existing VM.") do
           @options[:vsphere] = true
         end
 
         @options[:templatize] = false
-        opts.on('-t','--templatize',"build option: Mark the VM exported to vSphere as a template.") do
+        opts.on('-t','--templatize',"(action): Mark a VM in vSphere as a template.") do
           @options[:templatize] = true
         end
 
-        @options[:define] = false
-        opts.on('-d','--define NAME',"Create a VM definition for veewee.") do |name|
-          @options[:define] = true
-          @options[:name] = name
-        end
-
         @options[:destroy] = false
-        opts.on('--destroy NAME',"Destroy a VM") do |name|
+        opts.on('--destroy',"(action) Destroy a VM.") do 
           @options[:destroy] = true
-          @options[:name] = name
         end
 
         @options[:list] = false
-        opts.on('-l','--list') do
+        opts.on('-l','--list',"(action) List available VMs.") do
           @options[:list] = true
         end
 
         opts.on('-h','--help','show help') do
           puts opts
+          puts
           exit
         end
       end
@@ -79,9 +85,13 @@ module Seisan
     end
 
     def self.check_actions(options)
-      if options[:name] == nil
-        abort("No name chosen. Please use the -n NAME flag to choose which template to work with.")
+      if options[:name] == nil and options[:file] == nil
+        abort("No name chosen. Please use the -n or -f flag to choose which template(s) to work with.")
       end 
+
+      if options[:name] != nil and options[:file] != nil
+        abort("Ambiguous options. Both name and file flags are in use.")
+      end
 
       actions =  options[:build], options[:destroy], options[:list]
       check = actions.delete_if {|bool| !bool}

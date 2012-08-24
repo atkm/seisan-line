@@ -7,14 +7,14 @@ require 'rbvmomi'
 module Seisan
 
   def templatize(name)
-    puts "Connecting to vsphere.dc1.puppetlabs.net..."
-    vim = RbVmomi::VIM.connect :host => 'vsphere.dc1.puppetlabs.net', :user => 'atsuya', :password => 'wzzbyCH5iOcora59D0XE', :insecure => true
-    puts "Connected with user 'atsuya'."
-    puts "Looking for dc1..."
-    dc = vim.serviceInstance.find_datacenter('dc1') or fail "dc1 not found"
-    puts "Found dc1."
+    puts "Connecting to #{host_name}..."
+    vim = RbVmomi::VIM.connect :host => host_name, :user => vsphere_username, :password => vsphere_password, :insecure => true
+    puts "Connected with user #{vsphere_username}."
+    puts "Looking for #{datacenter_name}..."
+    dc = vim.serviceInstance.find_datacenter(datacenter_name) or fail "dc1 not found"
+    puts "Found #{datacenter_name}."
     puts "Looking for VM #{name}..."
-    vm = dc.find_vm("AcceptanceTest/#{name}") or fail "vm not found" 
+    vm = dc.find_vm("#{resourcepool_name}/#{name}") or fail "vm not found" 
     puts "Found #{name}. Insuring that its status is 'off'..."
     if vm.summary.runtime.powerState == 'poweredOn'
       puts "#{name} is currently on. Powering off..."
@@ -32,4 +32,5 @@ module Seisan
       puts "Something went wrong. Most likely the VM wasn't properly power off or it was already marked as a template."
     end
 
+  end
 end

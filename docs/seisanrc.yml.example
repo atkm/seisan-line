@@ -1,0 +1,9 @@
+---
+ks_file_server: http://10.10.10.10
+ks_file_server_local: /Library/WebServer/Documents
+vsphere_username: me
+vsphere_password: longsecretpassword
+host_name: vsphere.dc1.yourvsphere.net
+datacenter_name: dc1
+cluster_name: cluster1
+resourcepool_name: ResourcePool1

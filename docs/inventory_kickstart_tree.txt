@@ -1,0 +1,9 @@
+inventory/kickstart
+├── ks_base.erb
+├── ks_base.rb
+├── ks_seed_sample.rb
+└── seeds
+    ├── pkgs.yml
+    └── reponame.yml
+
+1 directory, 5 files

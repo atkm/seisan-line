@@ -1,0 +1,15 @@
+Oracle5-PE -> success
+Oracle5-FOSS -> success
+Oracle6-PE -> success
+Oracle6-FOSS -> success
+SL5-PE -> success.
+SL5-FOSS -> success.
+SL6-PE -> success.
+SL6-FOSS -> success.
+RHEL6-PE -> success
+RHEL6-FOSS -> success
+
+A small issue common to Oracle and RHEL:
+  gcc and kernel-headers not available.
+  Oracle 5 -> hence git build fails. => install git from epel.
+  package kernel-devel not available via yum.

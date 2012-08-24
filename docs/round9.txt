@@ -1,0 +1,2 @@
+Oracle-6-64-PE
+Oracle-6-64-FOSS
