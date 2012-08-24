@@ -1,0 +1,4 @@
+CentOS-5-32-PE
+CentOS-5-64-PE
+CentOS-5-32-FOSS
+CentOS-5-64-FOSS

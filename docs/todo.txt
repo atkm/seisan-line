@@ -1,0 +1,6 @@
+Ubuntu lucid: git-core is ... BROKEN! depends on liberror-perl libdigest-sha1-perl
+              no emacs.
+            => need this repo http://us.archive.ubuntu.com/ubuntu lucid main restricted universe multiverse
+            => added to preseed.cfg.erb, but didn't get reflected.
+                just remove them from pkgs.yml and deal with it by
+                post scripts.

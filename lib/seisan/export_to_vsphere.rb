@@ -9,10 +9,6 @@
 
 module Seisan
 
-  def vsphere_password
-    return 'wzzbyCH5iOcora59D0XE'
-  end
-
   def export_to_vsphere(name)
     stop_vm(name)
     send_vm(name)
@@ -47,11 +43,12 @@ module Seisan
       passwd = Password.get('vSphere password: ')
     end
     
+    host = host_name
     datacenter = datacenter_name
     cluster = cluster_name
     resource_pool = resourcepool_name
 
-    vi_path = 'vi://' + username + ':' + passwd + '@' + File.join(datacenter_name, 'host', cluster_name, 'Resources', resourcepool_name)
+    vi_path = 'vi://' + username + ':' + passwd + '@' + File.join(host_name, datacenter_name, 'host', cluster_name, 'Resources', resourcepool_name)
 
     command = [ovf_command, target_vmx, vi_path] * ' '
     puts "Executing #{command}..."

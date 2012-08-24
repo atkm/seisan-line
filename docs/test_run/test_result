@@ -1,0 +1,27 @@
+### List of distros to test
+### The ones commented out are those successfully built
+### except for the packages and post-install scripts.
+
+#- CentOS-5-32
+#- CentOS-5-64 # "Media test" <- tell it to skip from ks.cfg <- worked second time... fluke?
+- RedHat-5-32 <- asking for subscription number! <- skipped it and went fine... until it asked for disc 2
+- RedHat-5-64 <- exactly the same as 32-bit
+#- Oracle-5-32
+#- Oracle-5-64
+#- SL-5-32
+#- SL-5-64
+#- CentOS-6-32
+#- CentOS-6-64
+#- RedHat-6-32
+#- RedHat-6-64
+- Oracle-6-32 # <- 'Could not find kernel image. text' => bad iso
+#- Oracle-6-64
+#- SL-6-32
+- SL-6-64 # <- "Please insert disc 2 to continue" => bad iso?
+# distros to test (Debian)
+#- Ubuntu-10-32
+#- Ubuntu-10-64
+#- Ubuntu-12-32 
+#- Ubuntu-12-64
+# Debian-6-32 # <- CD Scan needs to be skipped. Need to disable 'use a network mirror?'. Configuration competition. <- All fixed
+#- Debian-6-64 

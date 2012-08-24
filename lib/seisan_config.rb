@@ -8,14 +8,18 @@
 ###    origami/lib/[kickstart,definition]/seeds
 ###    origami/lib/config.rb
 ###    origami/lib/[kickstart,definition]/[definition,ks]_base.rb
+require 'yaml'
 
 module Seisan
+  def seisanrc
+    return YAML.load_file(File.expand_path('~/.seisanrc.yml'))
+  end
   def ks_file_server # where ks.cfg is fetched from during installation
-    return 'http://192.168.100.225'
+    return seisanrc['ks_file_server']
   end
 
   def ks_file_server_local # Somewhere local you can cp ks.cfg to
-    return '/Library/WebServer/Documents'
+    return seisanrc['ks_file_server_local']
   end
 
   def vm_path
@@ -28,19 +32,26 @@ module Seisan
   end
   
   def vsphere_username
-    return 'atsuya'
+    return seisanrc['vsphere_username']
   end
  
+  def vsphere_password
+    return seisanrc['vsphere_password']
+  end
+
+  def host_name
+    return seisanrc['host_name']
+  end
   def datacenter_name
-    return 'vsphere.dc1.puppetlabs.net/dc1'
+    return seisanrc['datacenter_name']
   end
 
   def cluster_name
-    return 'c01'
+    return seisanrc['cluster_name']
   end
 
   def resourcepool_name
-    return 'AcceptanceTest'
+    return seisanrc['resourcepool_name']
   end
   
 end

@@ -1,0 +1,4 @@
+Oracle-5-32-PE
+Oracle-5-64-FOSS
+Oracle-6-64-PE
+Oracle-6-64-FOSS

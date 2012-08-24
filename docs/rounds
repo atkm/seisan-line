@@ -1,0 +1,51 @@
+round1
+CentOS-5-32-PE
+CentOS-5-64-PE
+CentOS-5-32-FOSS
+CentOS-5-64-FOSS
+round2
+Ubuntu-10-32-PE
+Ubuntu-10-64-PE
+Ubuntu-10-32-FOSS
+Ubuntu-10-64-FOSS
+round3
+CentOS-6-32-PE
+CentOS-6-64-PE
+CentOS-6-32-FOSS
+CentOS-6-64-FOSS
+round4
+Ubuntu-12-32-PE
+Ubuntu-12-64-PE
+Ubuntu-12-32-FOSS
+Ubuntu-12-64-FOSS
+round5
+SL-6-32-PE
+(SL-6-64-PE x bad iso)
+SL-6-32-FOSS
+(SL-6-64-FOSS x bad iso)
+round6
+Debian-6-32-PE
+Debian-6-64-PE
+Debian-6-32-FOSS
+Debian-6-64-FOSS
+round7
+Oracle-5-32-PE
+Oracle-5-54-PE
+Oracle-5-32-FOSS
+Oracle-5-54-FOSS
+round8
+SLES-11-32-PE
+SLES-11-114-PE
+SLES-11-32-FOSS
+SLES-11-114-FOSS
+round9
+(Oracle-6-32-PE x bad iso)
+Oracle-6-64-PE
+(Oracle-6-32-FOSS x bad iso)
+Oracle-6-64-FOSS
+round10
+RedHat-6-32-PE
+RedHat-6-64-PE
+RedHat-6-32-FOSS
+RedHat-6-64-FOSS
+

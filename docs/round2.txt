@@ -1,0 +1,3 @@
+Ubuntu-10-64-PE
+Ubuntu-10-32-FOSS
+Ubuntu-10-64-FOSS

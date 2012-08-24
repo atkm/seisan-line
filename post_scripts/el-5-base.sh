@@ -1,3 +1,11 @@
+#!/bin/bash
+# Install git from source. An alternative
+# way to install git is from EPEL.
+
+wget http://download.fedoraproject.org/pub/epel/5/i386/epel-release-5-4.noarch.rpm
+rpm -Uvh ./epel-release-5-4.noarch.rpm
+yum -y --nogpgcheck install git
+
 # yum -y install gcc zlib-devel openssl-devel cpio expat-devel gettext-devel
 # cd /usr/local/src
 # echo "cd /usr/local/src"
@@ -12,8 +20,4 @@
 # ./configure
 # make
 # make install
-
-echo "git-inst.sh:"
-echo "This script is meant for installing git from source."
-echo "However things are commented out b/c I don't need git for the time being."
-echo "See git-inst.sh for instructions."
+# 

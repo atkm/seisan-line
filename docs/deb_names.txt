@@ -1,0 +1,12 @@
+Ubuntu-10-32-PE
+Ubuntu-10-64-PE
+Ubuntu-12-32-PE
+Ubuntu-12-64-PE
+Debian-6-32-PE
+Debian-6-54-PE
+Ubuntu-10-32-FOSS
+Ubuntu-10-64-FOSS
+Ubuntu-12-32-FOSS
+Ubuntu-12-64-FOSS
+Debian-6-32-FOSS
+Debian-6-54-FOSS

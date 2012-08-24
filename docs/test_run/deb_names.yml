@@ -1,0 +1,7 @@
+# distros to test (Debian)
+#- Ubuntu-10-32-typeA
+#- Ubuntu-10-64-typeA
+#- Ubuntu-12-32-typeA <- fallback-graphics exit with status 1
+#- Ubuntu-12-64-typeA
+# Debian-6-32-typeA # <- CD Scan needs to be skipped. Need to disable 'use a network mirror?'. Configuration competition shit. <- All fixed
+#- Debian-6-64-typeA 
