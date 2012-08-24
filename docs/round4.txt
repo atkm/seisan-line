@@ -1,0 +1,4 @@
+Ubuntu-12-32-PE
+Ubuntu-12-64-PE
+Ubuntu-12-32-FOSS
+Ubuntu-12-64-FOSS
